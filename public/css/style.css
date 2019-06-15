@@ -1,3 +1,6 @@
 /**
  * TODO(you): Add the CSS necessary to complete your final project.
  **/
+.inactive {
+    display: none !important;
+}
