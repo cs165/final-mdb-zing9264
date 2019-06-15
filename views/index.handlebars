@@ -19,25 +19,24 @@
     </div>
 </header>
 
-
 <div class="display-journal inactive">
     <main>
         <div class="date">
-            <h1></h1>
+            <h1>{{date-view}}</h1>
         </div>
         <div class="title">
-            <h4></h4>
+            <h4>{{title-view}}</h4>
         </div>
         <form class="context" method="post">
-            <textarea class="textarea" style="width:400px;height:120px;"></textarea>
+            <textarea class="textarea" style="width:400px;height:120px;">{{Content}}</textarea>
             <button id="submitbtn">submit</button>
         </form>
     </main>
     <footer>
         <div class="UIbar default" style="display: flex">
-            <input type="button" style="width:70px;height:70px;background-image:url('image/back.png');">
-            <h3>home</h3>
-            <input type="button" style="width:70px;height:70px;background-image:url('image/forward.png');">
+            <div class="btn back"></div>
+            <div class="home">home</div>
+            <div class="btn forward"></div>
         </div>
         <div class="UIbar edit inactive" style="display: flex">
             <input type="button" style="width:70px;height:70px;background-image:url('image/back.png');">

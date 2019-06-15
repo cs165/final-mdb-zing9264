@@ -4,3 +4,52 @@
 .inactive {
     display: none !important;
 }
+
+.btn{
+    margin-top: 5px;
+    height: 48px;
+    margin-left: auto; margin-right: auto;
+    width:  48px;
+    justify-content: center;
+    margin-bottom: 5px;
+
+}
+
+.back{
+    margin-top: 5px;
+    height: 48px;
+    margin-left: auto; margin-right: auto;
+    content: url("../image/back.png");
+    width:  48px;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+.back :hover{
+    border:12px solid #000000;
+    margin-top: 5px;
+    height:  48px;
+    margin-left: auto; margin-right: auto;
+    content: url("../image/forward.png");
+    width: 48px;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+.forward{
+    margin-top: 5px;
+    height:  48px;
+    margin-left: auto; margin-right: auto;
+    content: url("../image/forward.png");
+    width: 48px;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+.forward :hover{
+    border:12px solid #000000;
+     margin-top: 5px;
+     height:  48px;
+     margin-left: auto; margin-right: auto;
+     content: url("../image/forward.png");
+     width: 48px;
+     justify-content: center;
+     margin-bottom: 5px;
+ }
