@@ -56,8 +56,7 @@ let db = null;
 let diarycollection=null;
 let entrycollection=null;
 async function main() {
-    const DATABASE_NAME = 'cs193x-db';
-    const MONGO_URL = `mongodb://localhost:27017/${DATABASE_NAME}`;
+    const MONGO_URL = `mongodb://<dbuser>:<dbpassword>@ds135207.mlab.com:35207/heroku_z9zvst29`;
 
     // The "process.env.MONGODB_URI" is needed to work with Heroku.
     db = await MongoClient.connect(process.env.MONGODB_URI || MONGO_URL);
