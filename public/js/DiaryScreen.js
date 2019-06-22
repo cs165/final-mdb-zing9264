@@ -77,6 +77,12 @@ class DiaryScreen {
     }
 
     _changeDate(event) {
+        var num=func(location.href,'/')
+        console.log(location.href+ " --- "+num);
+        if(num!==4){
+            return;
+        }
+
         if(event!=null) {
             var page = event.srcElement.classList[1];
             console.log();
@@ -90,19 +96,14 @@ class DiaryScreen {
                 console.log(this.currentDate);
             }
         }
+
         const params = {
             DiaryId: this.herf,
-            Dbdate: this.currentDate.toLocaleDateString()
+            Dbdate: this.currentDate.toLocaleDateString().replace(new RegExp('/', 'g'),"-")
         };
 
-        fetch("/getinfo", {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(params)
-        }).then((response) => response.json())
+        fetch("/getinfo/"+params.DiaryId+"/"+params.Dbdate)
+            .then((response) => response.json())
             .then((responseJsonData) => {
                 console.log("success");
                 this.title=responseJsonData.title;
@@ -111,7 +112,7 @@ class DiaryScreen {
                 this._getInfo(this.currentDate);
             })
             .catch((error) => {
-                
+
             });
 
     }
@@ -122,3 +123,4 @@ class DiaryScreen {
 
 }
 
+function func(str,char){ var str=str; var num=(str.split(char)).length-1; return num};

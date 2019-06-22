@@ -56,17 +56,17 @@ let db = null;
 let diarycollection=null;
 let entrycollection=null;
 async function main() {
-  const DATABASE_NAME = 'cs193x-db';
-  const MONGO_URL = `mongodb://localhost:27017/${DATABASE_NAME}`;
+    const DATABASE_NAME = 'cs193x-db';
+    const MONGO_URL = `mongodb://localhost:27017/${DATABASE_NAME}`;
 
-  // The "process.env.MONGODB_URI" is needed to work with Heroku.
-  db = await MongoClient.connect(process.env.MONGODB_URI || MONGO_URL);
-  diarycollection = db.collection('diaries');
-  entrycollection=  db.collection('entries');
-  // The "process.env.PORT" is needed to work with Heroku.
-  const port = process.env.PORT || 3000;
-  await app.listen(port);
-  console.log(`Server listening on port ${port}!`);
+    // The "process.env.MONGODB_URI" is needed to work with Heroku.
+    db = await MongoClient.connect(process.env.MONGODB_URI || MONGO_URL);
+    diarycollection = db.collection('diaries');
+    entrycollection=  db.collection('entries');
+    // The "process.env.PORT" is needed to work with Heroku.
+    const port = process.env.PORT || 3000;
+    await app.listen(port);
+    console.log(`Server listening on port ${port}!`);
 }
 
 
@@ -134,6 +134,19 @@ async function onCreatNewDiary(req, res) {
 app.get('/creatNewDiary', onCreatNewDiary);
 
 
+async function onloadDiary(req,res){
+    const collection = db.collection('diaries');
+    console.log("find onloadDiary");
+    await collection.find().toArray(function(err,items){
+        if(err) throw err;
+        console.log(items);
+        res.json(items);
+        console.log("We found "+items.length+" results!");
+    });
+
+}
+app.get('/loadDiary', onloadDiary);
+
 
 async function onLinkEntry(req,res){
     let date= new Date();
@@ -174,8 +187,8 @@ async function onSaveDiary(req,res){
 app.post('/save', jsonParser,onSaveDiary);
 
 async function onchangedate(req,res){
-    const date = req.body.Dbdate;
-    const DiaryId = req.body.DiaryId;
+    const date = req.params.date.replace(new RegExp('-', 'g'),"/");
+    const DiaryId = req.params.DiaryId;
     const collection = db.collection('entries');
     console.log("onchangedate");
     console.log("date:"+date);
@@ -187,4 +200,30 @@ async function onchangedate(req,res){
     console.log(response);
     res.json({ "date-view":date,"title":title[date.split('/')[2]-1],"Content": response.Content } );
 }
-app.post('/getinfo', jsonParser,onchangedate);
+app.get('/getinfo/:DiaryId/:date',onchangedate);
+
+
+async function onDelete(req, res) {
+    const name = req.params.Dbname;
+    console.log("deleted Dbname:"+name);
+    const diarycollection = db.collection('diaries');
+    const entrycollection = db.collection('entries');
+    const where={
+        DiaryId:name
+    };
+    diarycollection.deleteMany(where, function(err, obj) {
+        if (err) throw err;
+        console.log(obj.result.n + " document(s) deleted");
+
+    });
+    entrycollection.deleteMany(where, function(err, obj) {
+        if (err) throw err;
+        console.log(obj.result.n + " document(s) deleted");
+    });
+
+    res.json({ "Content": name+" delete success", "status": 200 } );
+    // TODO(you): Implement onDelete.
+
+}
+
+app.delete('/delete/:Dbname', onDelete);

@@ -16,9 +16,12 @@
     <div class="home inactive">Creating a new journal
         <button class="creatbtn">CREATE A NEW JOURNAL</button>
         <button class="loadbtn">LOAD AN OLD JOURNAL</button>
+        <br>
+        <div id="savedDiary" class="inactive">
+        </div>
     </div>
-</header>
 
+</header>
 
 <div class="display-journal ">
     <main>
@@ -29,7 +32,7 @@
             <h4>{{title-view}}</h4>
         </div>
         <form class="context" method="post">
-          <textarea class="textarea" style="width:400px;height:120px;">{{Content}}</textarea>
+           <textarea class="textarea" style="width:400px;height:120px;">{{Content}}</textarea>
             <button id="submitbtn">submit</button>
         </form>
     </main>
@@ -38,9 +41,6 @@
             <div class="btn back"></div>
             <div class="home">home</div>
             <div class="btn forward"></div>
-        </div>
-        <div class="UIbar edit inactive" style="display: flex">
-            <input type="button" style="width:70px;height:70px;background-image:url('image/back.png');">
         </div>
     </footer>
 </div>

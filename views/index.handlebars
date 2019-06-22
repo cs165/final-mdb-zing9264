@@ -9,13 +9,24 @@
     <script src="/js/DiaryScreen.js" defer></script>
     <script src="/js/HomeScreen.js" defer></script>
     <script src="/js/script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
 <!-- TODO(you): Add the HTML necessary to complete your final project. -->
-<header>
-    <div class="home">Creating a new journal
+<header class="">
+    <span> CREATE  or  LORD your JOURNAL</span>
+    <div class="home">
+        <br>
         <button class="creatbtn">CREATE A NEW JOURNAL</button>
+        <br>
         <button class="loadbtn">LOAD AN OLD JOURNAL</button>
+        <br>
+        <div id="savedDiary" class="loadzone inactive">
+        </div>
     </div>
 </header>
 
@@ -37,9 +48,6 @@
             <div class="btn back"></div>
             <div class="home">home</div>
             <div class="btn forward"></div>
-        </div>
-        <div class="UIbar edit inactive" style="display: flex">
-            <input type="button" style="width:70px;height:70px;background-image:url('image/back.png');">
         </div>
     </footer>
 </div>

@@ -4,6 +4,110 @@
 .inactive {
     display: none !important;
 }
+body{
+    background-color: #313638;
+    color: #E8E9EB;
+}
+
+header {
+    font-family: 'Merriweather', serif;
+    font-size: 3rem;
+
+    text-align: center;
+
+}
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+    align-items: center;
+
+}
+.home button:hover{
+    background-color: #E0DFD5;
+    color: #F06543;
+
+}
+
+.home button:hover:after  {
+    content: ">>";
+
+}
+
+.creatbtn{
+    display: block;
+    border-radius: 8px;
+    background-color: #F06543;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 2rem;
+    transition: all 0.5s;
+    height: 7rem;
+    width:60%;
+}
+
+.loadbtn{
+    display: block;
+    border-radius: 5px;
+    background-color: #F06543;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 2rem;
+    transition: all 0.5s;
+    height: 7rem;
+    width:60%;
+
+}
+/* F06543 F09D51 313638  E8E9EB E0DFD5*/
+#savedDiary {
+
+}
+
+.loadBlock{
+
+    flex: 0 0 30%;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+
+}
+
+#savedDiary .loadDiary{
+    display: flex;
+    border-radius: 8px;
+    background-color: rgb(64, 86, 139);
+    border: none;
+    color: #fffbfb;
+    text-align: center;
+    font-size: 2rem;
+    transition: all 0.5s;
+}
+
+#savedDiary .loadDiary:hover{
+    background-color: #E0DFD5;
+    color: #F06543;
+}
+
+
+#savedDiary .deleteDiary{
+    display: flex;
+    border-radius: 8px;
+    background-color: #9b1f28;
+    border: none;
+    color: #f0eadf;
+    text-align: center;
+    font-size: 2rem;
+    transition: all 0.5s;
+}
+
+#savedDiary .deleteDiary:hover{
+    background-color: #E0DFD5;
+    color: #F06543;
+}
+
 
 .btn{
     margin-top: 5px;
