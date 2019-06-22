@@ -16,16 +16,18 @@ class DiaryScreen {
         this.title= null;
         this.contents=null;
 
-        this.form= containerElement.querySelector("form");
-        this.form.addEventListener('submit',this._postdata);
+
+
 
         this.back=containerElement.querySelector(".back");
         this.back.addEventListener('pointerdown',this._changeDate);
         this.forward=containerElement.querySelector(".forward");
         this.forward.addEventListener('pointerdown',this._changeDate);
-        this.home=containerElement.querySelector(".home");
+        this.home=containerElement.querySelector(".today");
         this.home.addEventListener('pointerdown',this._gohome);
         this._changeDate(null);
+
+
     }
 
     hide(){
@@ -40,8 +42,8 @@ class DiaryScreen {
         console.log( today.toLocaleDateString());
         var todayslash = today.toLocaleDateString();
         var day= todayslash.split('/')[2];
-        this.containerElement.querySelector('.date h1').innerHTML = today.toLocaleDateString('en-US', options);
-        this.containerElement.querySelector('.title h4').innerHTML = this.title;
+        this.containerElement.querySelector('.date').innerHTML = today.toLocaleDateString('en-US', options);
+        this.containerElement.querySelector('.title').innerHTML = this.title;
         this.containerElement.querySelector('.context .textarea').value =this.contents;
 
 
@@ -68,7 +70,6 @@ class DiaryScreen {
          })
              .then((response)=>response.json())
              .then((responseJsonData)=>{
-                 alert("success");
                  console.log(responseJsonData);
              })
              .catch((error)=>{

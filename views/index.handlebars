@@ -30,29 +30,27 @@
     </div>
 </header>
 
-<div class="display-journal inactive">
+
+<div class="display-journal inactive ">
     <main>
         <div class="date">
-            <h1>{{date-view}}</h1>
+            {{date-view}}
         </div>
         <div class="title">
-            <h4>{{title-view}}</h4>
+            {{title-view}}
         </div>
         <form class="context" method="post">
-            <textarea class="textarea" style="width:400px;height:120px;">{{Content}}</textarea>
-            <button id="submitbtn">submit</button>
+            <textarea id="styled" class="textarea" onfocus="setbg('#e5fff3');settextarea(1); " onblur="setbg('white');settextarea(0);" style="background: white;">{{Content}}</textarea>
         </form>
     </main>
     <footer>
-        <div class="UIbar default" style="display: flex">
-            <div class="btn back"></div>
-            <div class="home">home</div>
-            <div class="btn forward"></div>
+        <div class="UIbar default">
+            <button class="btn back"><<</button>
+            <button class="today">GO Today</button>
+            <button class="btn forward">>></button>
         </div>
     </footer>
 </div>
-
-
 
 </body>
 </html>

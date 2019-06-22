@@ -8,6 +8,7 @@ class App {
         const diaryElement = document.querySelector('.display-journal');
         this.diaryScreen = new DiaryScreen(diaryElement);
         addEventListener('changeToDiary',this._changeToDiary)
+        addEventListener('postdata',diaryElement._postdata);
     }
      _changeToDiary(){
         this.homeScreen.hide();

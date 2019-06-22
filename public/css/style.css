@@ -12,7 +12,6 @@ body{
 header {
     font-family: 'Merriweather', serif;
     font-size: 3rem;
-
     text-align: center;
 
 }
@@ -32,7 +31,6 @@ header {
 
 .home button:hover:after  {
     content: ">>";
-
 }
 
 .creatbtn{
@@ -109,51 +107,79 @@ header {
 }
 
 
+main{
+    display: inline-flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-journal .date {
+    font-family: 'Merriweather', serif;
+    font-size: 4rem;
+    text-align: center;
+    width: 50%;
+    border-bottom:#E8E9EB 0.5rem solid;
+    margin: 30px;
+
+}
+
+.display-journal .title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin: 10px;
+}
 .btn{
-    margin-top: 5px;
-    height: 48px;
-    margin-left: auto; margin-right: auto;
-    width:  48px;
-    justify-content: center;
-    margin-bottom: 5px;
-
+    border-radius: 8px;
+    background-color: #40568b;
+    border: none;
+    color: #f0eadf;
+    text-align: center;
+    font-size: 2rem;
+    transition: all 0.5s;
+}
+.btn:hover{
+    border-radius: 8px;
+    background-color: #fffbfb;
+    border: none;
+    color: #341017;
+    text-align: center;
+    font-size: 2rem;
+    transition: all 0.5s;
 }
 
-.back{
-    margin-top: 5px;
-    height: 48px;
-    margin-left: auto; margin-right: auto;
-    content: url("../image/back.png");
-    width:  48px;
-    justify-content: center;
-    margin-bottom: 5px;
+
+.back:hover:after{
+    content: "<";
 }
-.back :hover{
-    border:12px solid #000000;
-    margin-top: 5px;
-    height:  48px;
-    margin-left: auto; margin-right: auto;
-    content: url("../image/forward.png");
-    width: 48px;
-    justify-content: center;
-    margin-bottom: 5px;
+
+.forward:hover:after{
+    content: ">";
 }
-.forward{
-    margin-top: 5px;
-    height:  48px;
-    margin-left: auto; margin-right: auto;
-    content: url("../image/forward.png");
-    width: 48px;
+
+
+.display-journal{
+    font-family: 'Merriweather', serif;
+    font-size: 3rem;
+    text-align: center;
+    display: block;
+
+    flex-direction: column;
     justify-content: center;
-    margin-bottom: 5px;
+    align-items: center;
 }
-.forward :hover{
-    border:12px solid #000000;
-     margin-top: 5px;
-     height:  48px;
-     margin-left: auto; margin-right: auto;
-     content: url("../image/forward.png");
-     width: 48px;
-     justify-content: center;
-     margin-bottom: 5px;
- }
+
+.display-journal .context .textarea{
+    width: 640px;
+    height: 360px;
+    border: 3px solid #cccccc;
+    padding: 5px;
+    font-size: 18px;
+    line-height: 15px;
+    font-family: Tahoma, sans-serif;
+
+}
+footer{
+    display: inline;
+}
